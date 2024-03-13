@@ -27,7 +27,7 @@
       //Create a Three.JS Scene
 const scene = new THREE.Scene();
 //create a new camera with positions and angles
-const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
+const camera = new THREE.PerspectiveCamera(90, window.innerWidth / window.innerHeight, 10, 10000);
 
 //Keep track of the mouse position, so we can make the eye move
 let mouseX = window.innerWidth / 2;
@@ -44,8 +44,8 @@ let objToRender = 'door5';
 
 //Instantiate a loader for the .gltf file
 let loader = new THREE.GLTFLoader();
-const textureLoader = new THREE.TextureLoader();
-const texture = textureLoader.load("models/door3/краска2.jpg");
+//const textureLoader = new THREE.TextureLoader();
+//const texture = textureLoader.load("models/door6/краска2.jpg");
 
 var material = new THREE.MeshPhongMaterial({ color: 0xFF6913 });
 
@@ -113,7 +113,7 @@ renderer.setSize(window.innerWidth, window.innerHeight);
 document.getElementById("container3D").appendChild(renderer.domElement);
 
 //Set how far the camera will be from the 3D model
-camera.position.z = objToRender === "door5" ? 300 : 500;
+camera.position.z = objToRender === "door5" ? 3000 : 100;
 
 //Add lights to the scene, so we can actually see the 3D model
 const topLight = new THREE.DirectionalLight(0xffffff, 1); // (color, intensity)
@@ -121,7 +121,7 @@ topLight.position.set(500, 500, 500) //top-left-ish
 topLight.castShadow = true;
 scene.add(topLight);
 
-const ambientLight = new THREE.AmbientLight(0x333333, objToRender === "dino" ? 5 : 1);
+const ambientLight = new THREE.AmbientLight(0x333333, objToRender === "door5" ? 5 : 1);
 scene.add(ambientLight);
 
 //This adds controls to the camera, so we can rotate / zoom it with the mouse

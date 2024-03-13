@@ -24,7 +24,7 @@ let controls;
 let objToRender = 'door3';
 
 //Instantiate a loader for the .gltf file
-let loader = new GLTFLoader();
+let loader = new THREE.GLTFLoader();
 
 
 var material = new THREE.MeshBasicMaterial({ color: 0xFF6913 });
